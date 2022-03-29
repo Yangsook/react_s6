@@ -25,15 +25,19 @@ const CourseInput = props => {
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <div className="form-control">
+      {/* 유효한 입력값만 추가될 수 있게 하기위해 inValid 클래스를 (동적으로) 추가 */}
+      {/* <div className={"form-control inValid"></div> */}
+      <div className={`form-control ${!isValid ? 'invalid' : ''}`}>
         <label style={{ color: !isValid ? 'red' : 'black' }}>Course Goal</label>
-        <input
+        {/* <input
           style={{
             borderColor: !isValid ? 'red' : '#ccc',
             background: !isValid ? 'salmon' : 'transparent'
           }}
           type="text"
           onChange={goalInputChangeHandler}
+        /> */}
+        <input type="text" onChange={goalInputChangeHandler}
         />
       </div>
       <Button type="submit">Add Goal</Button>
